@@ -28,6 +28,6 @@ Route::get('/', function () {
 
 Route::resource('patients', PatientController::class);
 
-Route::get('cep/{cep}', [CepController::class,'get']);
+// Route::get('cep/{cep}', [CepController::class,'get']);
 
-Route::post('import-csv', [ImportCsvController::class,'store']);
+// Route::post('import-csv', [ImportCsvController::class,'store']);
