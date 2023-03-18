@@ -24,7 +24,7 @@ class ImportCsvController extends Controller
 
         ProcessImportCsv::dispatch($data)->delay(now()->addSeconds(10));
 
-        return response()->json(['message' => 'File in processing...']);
+        return response()->json(['message' => 'Total rows '.count($data).'. File in processing...']);
     }
 
 }
