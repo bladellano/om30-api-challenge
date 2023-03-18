@@ -1,0 +1,45 @@
+volumes:
+    postgres-data:
+    redis-data:
+networks:
+    backend:
+
+services:
+
+  laravel-app:
+    container_name: laravel-app
+    build: .
+    volumes:
+      - ./laravel-app:/var/www/html
+    ports:
+      - 8080:80
+    networks:
+      - backend
+
+  postgres:
+        image: postgres:15.1
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: 123456
+            POSTGRES_USER: laravelapp
+            POSTGRES_DB: laravelapp
+            PGDATA: /var/lib/postgresql/data
+        networks:
+            - backend
+        restart: always
+
+  redis:
+         container_name: redis
+         image: redis:7
+         sysctls:
+             - net.core.somaxconn=511
+         ports:
+             - "6379:6379"
+         volumes:
+             - redis-data:/data
+         networks:
+             - backend
+         restart: always
