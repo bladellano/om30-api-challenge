@@ -31,7 +31,7 @@ Criar arquivo .env
   cd ..
 ```
 
-## Construir projeto
+## Opções para construção do projeto
 ### Opção 01 - com Make:
 
 ```bash
@@ -50,28 +50,34 @@ Criar arquivo .env
 
   docker exec laravel-app bash -c "php artisan db:seed"  
 ```
-Após executar todas essa etapas e o projeto estiver criado, clique aqui para ver a aplicação funcionando http://127.0.0.1:8080/api 
+Após executar todas essa etapas e o projeto já estiver criado, clique aqui para ver a aplicação funcionando http://127.0.0.1:8080/api 
 
-## Entrar no bash da aplicação
+Na raíz do projeto existe uma colletion request para importar no Insomnia ou Postman `endpoints.json`
+
+Na pasta da aplicação existe um arquivo `importa.csv` para testar a Importação SCV.
+
+# Comandos Make para acesso rápido
+
+#### Entrar no bash da aplicação
 ```bash
 make in
 ```
-## Executar o comando Queue
+#### Executar o comando Queue
 ```bash
 make queue
 ```
-## Entrar no container Redis
+#### Entrar no container Redis
 ```bash
 make redis
 ```
-## Executar Tests
+#### Executar Tests
 ```bash
 make test
 ```
 
 # Referências da API
 
-## Retorna todos pacientes ou uma pesquisa (nome ou cpf)
+### Retorna todos pacientes ou uma pesquisa (nome ou cpf)
 
 ```http
   GET /api/patients
@@ -80,7 +86,7 @@ make test
 | :-------- | :------- | :-------------------------------- |
 | `search`      | `int\|string` | **Not required**|
 
-## Buscar paciente
+### Buscar paciente
 
 ```http
   GET /api/patients/{id}
@@ -90,7 +96,7 @@ make test
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**|
 
-## Gravar paciente
+### Gravar paciente
 
 ```http
   POST /api/patients
@@ -112,7 +118,7 @@ Header `Content-Type:multipart/form-data`
 | `address[city]`      | `string` | **Required**|
 | `address[state]`      | `string` | **Required**|
 
-## Atualizar paciente
+### Atualizar paciente
 
 ```http
   PUT /api/patients/{id}
@@ -138,8 +144,9 @@ Header `Content-Type:multipart/form-data`
 | `address[district]`      | `string` | **Required**|
 | `address[city]`      | `string` | **Required**|
 | `address[state]`      | `string` | **Required**|
+| `_method`      | `string` | **Required**|
 
-## Remover paciente
+### Remover paciente
 
 ```http
   DELETE /api/patients/{id}
@@ -149,7 +156,7 @@ Header `Content-Type:multipart/form-data`
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `int` | **Required**|
 
-## Buscar CEP
+### Buscar CEP
 
 ```http
   GET /api/cep/{cep}
@@ -159,7 +166,7 @@ Header `Content-Type:multipart/form-data`
 | :-------- | :------- | :-------------------------------- |
 | `cep`      | `int` | **Required**|
 
-## Importar CSV
+### Importar CSV
 
 ```http
   POST /api/import-csv
@@ -170,3 +177,7 @@ Header `Content-Type:multipart/form-data`
 | `csv`      | `file` | **Required**|
 
 
+## Créditos 
+Esta aplicação foi desenvolvida por [Caio Dellano Nunes da Silva.](https://www.linkedin.com/in/bladellano/) 
+
+Site: [dellanosites.com.br](https://dellanosites.com.br/)
