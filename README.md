@@ -28,16 +28,19 @@ Vá para o diretório do projeto
 Criar arquivo .env
 
 ```bash
+  cd laravel-app
   cp .env.example .env
+  cd ..
 ```
 
-Construir projeto
+## Construir projeto
+### Opção 01 - com Make:
 
 ```bash
   make setup
 ```
 
-## Executar localmente - sem Make
+### Opção 02 - sem Make:
 ```bash
   docker-compose up -d
 
@@ -47,8 +50,7 @@ Construir projeto
 
   docker exec laravel-app bash -c "php artisan migrate"
 
-  docker exec laravel-app bash -c "php artisan db:seed"
-  
+  docker exec laravel-app bash -c "php artisan db:seed"  
 ```
 Após executar todas essa etapas e o projeto estiver criado, clique aqui para ver a aplicação funcionando http://127.0.0.1:8080/api 
 
