@@ -19,6 +19,8 @@ class PatientControllerTest extends TestCase
             'prefix' => '',
         ]]);
 
+        $this->app['config']->set('database.default', 'sqlite_testing');
+
         Artisan::call('migrate');
     }
 

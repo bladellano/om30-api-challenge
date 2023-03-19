@@ -2,14 +2,27 @@
 
 namespace Tests\Feature\API;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ImportCsvControllerTest extends TestCase
 {
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        config(['database.connections.sqlite_testing' => [
+            'driver' => 'sqlite',
+            'database' => ':memory:',
+            'prefix' => '',
+        ]]);
+
+        $this->app['config']->set('database.default', 'sqlite_testing');
+    }
     /**
      * A basic feature test example.
      *
