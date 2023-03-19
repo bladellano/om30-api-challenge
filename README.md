@@ -85,6 +85,7 @@ make test
 | Query | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `search`      | `int\|string` | **Not required**|
+| `page`      | `int` | **Not required**|
 
 ### Buscar paciente
 
