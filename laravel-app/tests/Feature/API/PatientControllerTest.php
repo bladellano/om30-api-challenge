@@ -7,7 +7,7 @@ use App\Models\Address;
 use Illuminate\Support\Facades\Artisan;
 
 
-class PacientControllerTest extends TestCase
+class PatientControllerTest extends TestCase
 {
     public function setUp(): void
     {
@@ -30,7 +30,7 @@ class PacientControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_pacient_store()
+    public function test_patient_store()
     {
         $dataPatient = [
             'full_name' => fake()->name,
@@ -56,7 +56,7 @@ class PacientControllerTest extends TestCase
         $response->assertCreated();
     }
 
-    public function test_pacient_store_unsuccessfully_cns_invalid()
+    public function test_patient_store_unsuccessfully_cns_invalid()
     {
         $dataPatient = [
             'full_name' => fake()->name,
@@ -84,9 +84,9 @@ class PacientControllerTest extends TestCase
 
     public function test_patient_update()
     {
-        $pacientWithAddress = Address::factory()->create();
+        $patientWithAddress = Address::factory()->create();
 
-        $patientId = $pacientWithAddress->patient_id;
+        $patientId = $patientWithAddress->patient_id;
 
         $data = [
             'full_name' => 'Edited',
@@ -110,8 +110,8 @@ class PacientControllerTest extends TestCase
 
     public function test_patient_delete()
     {
-        $pacientWithAddress = Address::factory()->create();
-        $patientId = $pacientWithAddress->patient_id;
+        $patientWithAddress = Address::factory()->create();
+        $patientId = $patientWithAddress->patient_id;
         $response = $this->deleteJson("api/patients/{$patientId}");
         $response->assertOk();
     }

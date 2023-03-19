@@ -26,7 +26,7 @@ Route::get('/', function () {
     return 'Working...';
 });
 
-Route::resource('patients', PatientController::class);
+Route::apiResource('patients', PatientController::class);
 
 Route::get('cep/{cep}', [CepController::class,'get']);
 
