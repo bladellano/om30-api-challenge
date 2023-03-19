@@ -8,8 +8,6 @@ Desenvolver uma API RestFull de cadastro de pacientes com seu devido endereço.
 - [Docker Composer](https://docs.docker.com/compose/)
 - [Make](https://linuxhint.com/install-use-make-ubuntu/)
 
-
-
 ## 🚀 Sobre mim
 Sou organizado e perfeccionista, preocupo-me com a qualidade. Gosto de ambientes estruturados com regras claras. Quando recebo uma tarefa, procuro executá-la com precisão e atenção aos detalhes. Sou calmo e bom ouvinte, acompanho os processos sempre que possível.
 
@@ -65,4 +63,8 @@ make queue
 ## Entrar no container Redis
 ```bash
 make redis
+```
+## Executar Tests
+```bash
+make test
 ```
