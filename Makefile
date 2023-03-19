@@ -28,6 +28,8 @@ purge:
 	docker-compose down --rmi all
 queue:
 	docker exec laravel-app bash -c "php artisan queue:work"
+test:
+	docker exec -t laravel-app bash -c "php artisan test"
 msg:
 	@echo ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
 	@echo ":::::: Clique aqui para ver a api funcionando ${APP_URL}/api ::::::"
