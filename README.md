@@ -54,7 +54,7 @@ Após executar todas essa etapas e o projeto já estiver criado, clique aqui par
 
 Na raíz do projeto existe uma colletion request para importar no Insomnia ou Postman `endpoints.json`
 
-Na pasta da aplicação existe um arquivo `importa.csv` para testar a Importação SCV.
+Na pasta da aplicação existe um arquivo `import.csv` para testar a Importação SCV.
 
 # Comandos Make para acesso rápido
 
