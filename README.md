@@ -68,3 +68,105 @@ make redis
 ```bash
 make test
 ```
+
+# Referências da API
+
+## Retorna todos pacientes ou uma pesquisa (nome ou cpf)
+
+```http
+  GET /api/patients
+```
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `search`      | `int\|string` | **Not required**|
+
+## Buscar paciente
+
+```http
+  GET /api/patients/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**|
+
+## Gravar paciente
+
+```http
+  POST /api/patients
+```
+Header `Content-Type:multipart/form-data`
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `photo`      | `file` | **Not required**|
+| `full_name`      | `string` | **Required**|
+| `mother_full_name`      | `string` | **Required**|
+| `date_of_birth`      | `string` | **Required**|
+| `cpf`      | `string` | **Required**|
+| `cns`      | `string` | **Required**|
+| `address[street]`      | `string` | **Required**|
+| `address[number]`      | `string` | **Required**|
+| `address[zip_code]`      | `string` | **Required**|
+| `address[complement]`      | `string` | **Not required**|
+| `address[district]`      | `string` | **Required**|
+| `address[city]`      | `string` | **Required**|
+| `address[state]`      | `string` | **Required**|
+
+## Atualizar paciente
+
+```http
+  PUT /api/patients/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**|
+
+Header `Content-Type:multipart/form-data`
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `photo`      | `file` | **Not required**|
+| `full_name`      | `string` | **Required**|
+| `mother_full_name`      | `string` | **Required**|
+| `date_of_birth`      | `string` | **Required**|
+| `cpf`      | `string` | **Required**|
+| `cns`      | `string` | **Required**|
+| `address[street]`      | `string` | **Required**|
+| `address[number]`      | `string` | **Required**|
+| `address[zip_code]`      | `string` | **Required**|
+| `address[complement]`      | `string` | **Not required**|
+| `address[district]`      | `string` | **Required**|
+| `address[city]`      | `string` | **Required**|
+| `address[state]`      | `string` | **Required**|
+
+## Remover paciente
+
+```http
+  DELETE /api/patients/{id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `int` | **Required**|
+
+## Buscar CEP
+
+```http
+  GET /api/cep/{cep}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `cep`      | `int` | **Required**|
+
+## Importar CSV
+
+```http
+  POST /api/import-csv
+```
+Header `Content-Type:multipart/form-data`
+| Query | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `csv`      | `file` | **Required**|
+
+
